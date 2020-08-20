@@ -5,6 +5,10 @@
         {{plugin-outlet name="users-top" connectorTagName='div' args=(hash model=model)}}
         
         <div class="directory-controls">
+		<Select id="displayselector">
+   <option value="list">Liste</option>
+   <option value="cards">Cartes de visite</option>
+</Select>
           <div class="period-controls">
             {{period-chooser period=period onChange=(action (mut period)) fullDay=false}}
             {{#if lastUpdatedAt}}
@@ -20,20 +24,12 @@
                         value=group
                         options=(hash clearable=true none=(theme-prefix 'filter_by_group'))
                         valueAttribute="value"}}
-
             </span>
             <span class="username-filter">
               {{text-field value=nameInput placeholderKey="directory.filter_name" class="filter-name no-blur"}}
             </span>
           </div>
-
-
-
         </div>
-
-
-
-
 
         {{#conditional-loading-spinner condition=model.loading}}
           {{#if userCards.length}}
