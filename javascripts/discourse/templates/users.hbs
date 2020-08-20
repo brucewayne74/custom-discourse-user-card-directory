@@ -35,7 +35,24 @@
 
         </div>
 
+<div>
+<Select>
+   <option value="list">Liste</option>
+   <option value="cards">Cartes de visite</option>
+</Select>
+</div>
+
         {{#conditional-loading-spinner condition=model.loading}}
+
+
+<div>
+<Select>
+   <option value="list">Liste</option>
+   <option value="cards">Cartes de visite</option>
+</Select>
+</div>
+
+
           {{#if userCards.length}}
 
           <table>
@@ -103,7 +120,7 @@
 
 <script>
     $(function() {
-        $('#colorselector').change(function(){
+        $('#displayselector').change(function(){
             $('.list-or-cards').hide();
             $('#' + $(this).val()).show();
         });
