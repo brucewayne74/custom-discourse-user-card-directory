@@ -26,12 +26,16 @@
             </span>
           </div>
 
+
+
+        </div>
+
+
 <Select id="displayselector">
    <option value="list">Liste</option>
    <option value="cards">Cartes de visite</option>
 </Select>
 
-        </div>
 
         {{#conditional-loading-spinner condition=model.loading}}
           {{#if userCards.length}}
