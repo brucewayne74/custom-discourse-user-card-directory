@@ -29,15 +29,6 @@
 
         {{#conditional-loading-spinner condition=model.loading}}
 
-
-<div>
-<Select>
-   <option value="list">Liste</option>
-   <option value="cards">Cartes de visite</option>
-</Select>
-</div>
-
-
           {{#if userCards.length}}
 
           <table>
@@ -101,7 +92,12 @@
   {{/load-more}}
 {{/d-section}}
 
-
+<div>
+<Select>
+   <option value="list">Liste</option>
+   <option value="cards">Cartes de visite</option>
+</Select>
+</div>
 
 <script>
     $(function() {
