@@ -3,12 +3,13 @@
     <div class="container">
       <div class="users-directory directory">
         {{plugin-outlet name="users-top" connectorTagName='div' args=(hash model=model)}}
-        
-        <div class="directory-controls">
-		<Select id="displayselector">
+
+<Select id="displayselector">
    <option value="list">Liste</option>
    <option value="cards">Cartes de visite</option>
 </Select>
+
+        <div class="directory-controls">
           <div class="period-controls">
             {{period-chooser period=period onChange=(action (mut period)) fullDay=false}}
             {{#if lastUpdatedAt}}
