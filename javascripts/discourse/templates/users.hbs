@@ -4,11 +4,6 @@
       <div class="users-directory directory">
         {{plugin-outlet name="users-top" connectorTagName='div' args=(hash model=model)}}
 
-<Select id="displayselector">
-   <option value="list">Liste</option>
-   <option value="cards">Cartes de visite</option>
-</Select>
-
         <div class="directory-controls">
           <div class="period-controls">
             {{period-chooser period=period onChange=(action (mut period)) fullDay=false}}
@@ -30,6 +25,14 @@
               {{text-field value=nameInput placeholderKey="directory.filter_name" class="filter-name no-blur"}}
             </span>
           </div>
+
+<div>
+<Select id="displayselector">
+   <option value="list">Liste</option>
+   <option value="cards">Cartes de visite</option>
+</Select>
+</div>
+
         </div>
 
         {{#conditional-loading-spinner condition=model.loading}}
