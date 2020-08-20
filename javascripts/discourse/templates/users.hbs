@@ -24,6 +24,12 @@
             <span class="username-filter">
               {{text-field value=nameInput placeholderKey="directory.filter_name" class="filter-name no-blur"}}
             </span>
+
+<Select id="displayselector">
+   <option value="list">Liste</option>
+   <option value="cards">Cartes de visite</option>
+</Select>
+
           </div>
         </div>
 
@@ -44,9 +50,16 @@
                 <th>{{i18n "directory.time_read"}}</th>
               {{/if}}
             </thead>
-
+            <div id="list" class="list-or-cards" style="display:none">
+            <tbody>
+              {{#each model as |item|}}
+                {{directory-item item=item showTimeRead=showTimeRead}}
+              {{/each}}
+            </tbody>
+            </div>
           </table>
 
+          <div id="cards" class="list-or-cards" style="display:none">
           <div class="user-card-directory">
             {{#each userCards as |userCard|}}
               <div class="user-card-container">
@@ -71,6 +84,7 @@
               </div>
             {{/each}}
             </div>
+			</div>
             {{conditional-loading-spinner condition=model.loadingMore}}
           {{else}}
             <div class='clearfix'></div>
@@ -82,3 +96,14 @@
     </div>
   {{/load-more}}
 {{/d-section}}
+
+
+
+<script>
+    $(function() {
+        $('#colorselector').change(function(){
+            $('.list-or-cards').hide();
+            $('#' + $(this).val()).show();
+        });
+    });
+</script>
