@@ -14,12 +14,13 @@
               </div>
             {{/if}}
           </div>
-          <div class="filters">            
+          <div class="filters">
             <span class="group-filter {{if group "active"}}">
               {{combo-box content=availableGroups
                         value=group
                         options=(hash clearable=true none=(theme-prefix 'filter_by_group'))
                         valueAttribute="value"}}
+
             </span>
             <span class="username-filter">
               {{text-field value=nameInput placeholderKey="directory.filter_name" class="filter-name no-blur"}}
@@ -31,10 +32,7 @@
         </div>
 
 
-<Select id="displayselector">
-   <option value="list">Liste</option>
-   <option value="cards">Cartes de visite</option>
-</Select>
+
 
 
         {{#conditional-loading-spinner condition=model.loading}}
